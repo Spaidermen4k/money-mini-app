@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Мои деньги</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <!-- Баланс -->
+    <section class="balance">
+      <p class="balance__label">Баланс</p>
+      <p class="balance__value" id="balance">0 ₽</p>
+      <div class="balance__row">
+        <div><span class="dot dot--in"></span>Доходы за месяц<b id="monthIn">0 ₽</b></div>
+        <div><span class="dot dot--out"></span>Расходы за месяц<b id="monthOut">0 ₽</b></div>
+      </div>
+    </section>
+
+    <!-- Добавление операции -->
+    <form class="form" id="form" autocomplete="off">
+      <div class="switch" role="tablist">
+        <button type="button" class="switch__btn is-active" data-type="expense">Расход</button>
+        <button type="button" class="switch__btn" data-type="income">Доход</button>
+      </div>
+
+      <input class="input input--amount" id="amount" type="text" inputmode="decimal" placeholder="Сумма, ₽" required>
+
+      <div class="chips" id="chips"></div>
+
+      <input class="input" id="note" type="text" maxlength="60" placeholder="Заметка (необязательно)">
+
+      <button class="submit" type="submit">Добавить</button>
+    </form>
+
+    <!-- История -->
+    <section class="history">
+      <h2>История</h2>
+      <ul class="list" id="list"></ul>
+      <p class="empty" id="empty">Операций пока нет. Добавьте первую выше.</p>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
